@@ -1,7 +1,9 @@
 :root {
 	--dim-entry-width: 100%;
-	--color: #212121;
-	--color-dim: #424242;
+	--dim-border-radius: 5px;
+	--tim-fade-in: .2s;
+	--col-primary: #000000;
+	--col-light: #212121;
 }
 
 * {
@@ -12,7 +14,7 @@
 	font-size: 110%;
 	font-family: sans-serif;
 
-	color: var(--color);
+	color: var(--col-primary);
 }
 
 body {
@@ -28,13 +30,11 @@ header h1 {
 }
 
 button {
-	-moz-transition: background .1s ease-in; 
-	-o-transition: background .1s ease-in; 
-	-webkit-transition: background .1s ease-in; 
-	transition: background .1s ease-in; 
-	background-color: var(--color);
+	transition: background var(--tim-fade-in) ease-in;
+	background-color: var(--col-primary);
 	color: white;
 	border: none;
+	border-radius: var(--dim-border-radius);
 	padding: 15px 32px;
 	text-align: center;
 	text-decoration: none;
@@ -42,13 +42,14 @@ button {
 }
 
 button:hover {
-	background-color: var(--color-dim);
+	background-color: var(--col-light);
 }
 
 #entry {
 	outline: none;
 	font-family: monospace;
-	border: 2px solid var(--color-dim);
+	border: 2px solid var(--col-light);
+	border-radius: var(--dim-border-radius);
 	padding: 15px 15px;
 	width: var(--dim-entry-width);
 }

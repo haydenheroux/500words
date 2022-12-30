@@ -13,8 +13,9 @@ def editor():
 def handle_post():
     content = request.get_json()
     if content is None:
-        return {}
+        return { "ok": False }
 
     text = content["text"]
+    print(text)
 
     return { "ok": True }
