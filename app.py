@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__,
             static_url_path="",
@@ -11,4 +11,10 @@ def editor():
 
 @app.route("/", methods=["POST"])
 def handle_post():
-    return render_template("index.html")
+    content = request.get_json()
+    if content is None:
+        return {}
+
+    text = content["text"]
+
+    return { "ok": True }

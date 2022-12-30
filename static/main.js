@@ -7,14 +7,40 @@ function wordCount(str) {
 		return 0
 	}
 
-	let words = str.split(" ")
+	const words = str.split(" ")
 	return words.length
 }
 
 submitElement.onclick = () => {
-	let text = entryElement.value
+	const text = entryElement.value
+
+	const body = {
+		text: text
+	}
+
+	const options = {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify(body)
+	}
 
 	// Post text to the server
+	fetch("/", options).then(data => {
+		if (!data.ok) {
+			throw Error(data.status)
+		}
+		return data.json()
+	}).then(response => {
+		if (response.ok == false) {
+			// TODO Report error to user via the interface
+			console.log(response)
+		}
+	}).catch(e => {
+		// TODO Report error to user via the interface
+		console.log(e)
+	})
 
 	// Update the word count
 	wcElement.innerText = `${wordCount(text)}/500`
