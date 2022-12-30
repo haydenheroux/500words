@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>500 Words</title>
+		<style type="text/css">
+			:root {
+				--dim-entry-width: 100%;
+				--color: #212121;
+				--color-dim: #424242;
+			}
+
+			* {
+				margin: 0;
+				margin-bottom: 2.5vh;
+				padding: 0;
+
+				font-size: 110%;
+				font-family: sans-serif;
+
+				color: var(--color);
+			}
+
+			body {
+				width: 75%;
+				margin: auto;
+			}
+
+			header h1 {
+				font-size: 1.5em;
+				margin-top: 2.5vh;
+				margin-bottom: 5vh;
+				text-align: center;
+			}
+
+			button {
+				-moz-transition: background .1s ease-in; 
+				-o-transition: background .1s ease-in; 
+				-webkit-transition: background .1s ease-in; 
+				transition: background .1s ease-in; 
+				background-color: var(--color);
+				color: white;
+				border: none;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+			}
+
+			button:hover {
+				background-color: var(--color-dim);
+			}
+
+			#entry {
+				outline: none;
+				font-family: monospace;
+				border: 2px solid var(--color-dim);
+				padding: 15px 15px;
+				width: var(--dim-entry-width);
+			}
+
+			#stats {
+				margin-left: 2.5vw;
+				display: inline;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>500 Words</h1>
+		</header>
+		<main>
+			<textarea autofocus rows=30 placeholder="Eget dolor morbi non arcu..." id="entry"></textarea>
+		</main>
+		<footer>
+			<button>Save</button>
+			<p id="stats">XXX words left</p>
+		</footer>
+	</body>
+</html>
