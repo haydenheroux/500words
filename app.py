@@ -1,3 +1,4 @@
+from datetime import date
 from flask import Flask, render_template, request
 
 app = Flask(__name__,
@@ -9,6 +10,13 @@ app = Flask(__name__,
 def editor():
     return render_template("index.html")
 
+def store(text: str) -> bool:
+    # TODO Use a database here
+    today = str(date.today())
+    with open(today, "w") as f:
+        f.write(text)
+    return True
+
 @app.route("/", methods=["POST"])
 def handle_post():
     content = request.get_json()
@@ -16,6 +24,6 @@ def handle_post():
         return { "ok": False }
 
     text = content["text"]
-    print(text)
+    ok = store(text)
 
-    return { "ok": True }
+    return { "ok": ok }
