@@ -59,7 +59,7 @@
 				width: var(--dim-entry-width);
 			}
 
-			#stats {
+			#wc {
 				margin-left: 2.5vw;
 				display: inline;
 			}
@@ -73,8 +73,35 @@
 			<textarea autofocus rows=30 placeholder="Eget dolor morbi non arcu..." id="entry"></textarea>
 		</main>
 		<footer>
-			<button>Save</button>
-			<p id="stats">XXX words left</p>
+			<button id="submit">Submit</button>
+			<p id="wc">XXX/500</p>
 		</footer>
+		<script>
+			const entryElement = document.getElementById("entry")
+			const submitElement = document.getElementById("submit")
+			const wcElement = document.getElementById("wc")
+
+			function wordCount(str) {
+				if (str === "") {
+					return 0
+				}
+
+				let words = str.split(" ")
+				return words.length
+			}
+
+			submitElement.onclick = () => {
+				let text = entryElement.value
+
+				// Post text to the server
+
+				// Update the word count
+				wcElement.innerText = `${wordCount(text)}/500`
+			}
+
+			// Automatically execute the onclick handler on page load
+			// This captures existing data and ensures the word count is accurate 
+			submitElement.onclick()
+		</script>
 	</body>
 </html>
