@@ -11,7 +11,7 @@ function wordCount(str) {
 	return words.length
 }
 
-submitElement.onclick = () => {
+function post() {
 	const text = entryElement.value
 
 	const body = {
@@ -46,6 +46,9 @@ submitElement.onclick = () => {
 	wcElement.innerText = `${wordCount(text)}/500`
 }
 
-// Automatically execute the onclick handler on page load
+submitElement.onclick = post
+entryElement.onkeyup = post
+
+// Automatically execute the post request on page load
 // This captures existing data and ensures the word count is accurate 
-submitElement.onclick()
+post()
