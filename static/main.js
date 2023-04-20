@@ -3,12 +3,7 @@ const submitElement = document.getElementById("submit")
 const wcElement = document.getElementById("wc")
 
 function wordCount(str) {
-	if (str === "") {
-		return 0
-	}
-
-	const words = str.split(" ")
-	return words.length
+	return str.match(/(\w+)/g).length;
 }
 
 function post() {
